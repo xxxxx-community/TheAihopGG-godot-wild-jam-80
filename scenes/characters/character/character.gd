@@ -13,6 +13,6 @@ class_name Character
 var move_direction: Vector2 = default_move_direction
 
 func _process(_delta):
-    if movement_is_enabled:
-        velocity = speed * move_direction.normalized()
-    move_and_slide()
+	if movement_is_enabled:
+		velocity = speed * move_direction.normalized()
+	move_and_slide()
