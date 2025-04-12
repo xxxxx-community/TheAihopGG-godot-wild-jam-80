@@ -3,9 +3,8 @@ class_name World
 
 @export var world_size: Vector2 = Vector2(100.0, 100.0)
 
-@onready var borders: Array[Node] = get_node("%Borders").get_children()
+@onready var world_borders: WorldBorders = get_node("%WorldBorders")
 
 func _ready():
 	GlobalVars.world = self
-	for border in borders:
-		border._configure_border()
+	world_borders._set_borders()
