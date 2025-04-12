@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://eef514p0jwil"]
+
+[ext_resource type="Script" uid="uid://dm2ssfd2pebxs" path="res://scenes/characters/character/character.gd" id="1_fnnly"]
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_fnnly")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
