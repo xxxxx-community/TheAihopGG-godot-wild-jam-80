@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://osff4b4kntj4"]
+
+[ext_resource type="Script" uid="uid://8n87xxfrg1wu" path="res://scenes/objects/world/world.gd" id="1_gmxm5"]
+[ext_resource type="PackedScene" uid="uid://dof5kd5d6ryr4" path="res://scenes/objects/world_border/world_border.tscn" id="2_5viag"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_gmxm5")
+
+[node name="Borders" type="Node" parent="."]
+
+[node name="WorldBorderRight" parent="Borders" instance=ExtResource("2_5viag")]
+border_normal = Vector2(1, 0)
+
+[node name="WorldBorderLeft" parent="Borders" instance=ExtResource("2_5viag")]
+border_normal = Vector2(-1, 0)
+
+[node name="WorldBorderUp" parent="Borders" instance=ExtResource("2_5viag")]
+border_normal = Vector2(0, -1)
+
+[node name="WorldBorderDown" parent="Borders" instance=ExtResource("2_5viag")]
+border_normal = Vector2(0, 1)
