@@ -13,3 +13,7 @@ unique_name_in_owner = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="Components" type="Node" parent="."]
