@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="TheAihopgg-godot-wild-jam-80"
+run/main_scene="uid://osff4b4kntj4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,8 +21,8 @@ GlobalVars="*res://scenes/singletones/global_vars/global_vars.tscn"
 
 [display]
 
-window/size/viewport_width=600
-window/size/viewport_height=600
+window/size/viewport_width=1000
+window/size/viewport_height=1000
 
 [dotnet]
 

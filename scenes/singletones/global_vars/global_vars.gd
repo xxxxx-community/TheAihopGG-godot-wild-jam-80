@@ -1,3 +1,3 @@
 extends Node
 
-var world: World
+@onready var world: World

@@ -5,8 +5,10 @@
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_gmxm5")
+world_size = Vector2(10, 10)
 
 [node name="Borders" type="Node" parent="."]
+unique_name_in_owner = true
 
 [node name="WorldBorderRight" parent="Borders" instance=ExtResource("2_5viag")]
 border_normal = Vector2(1, 0)

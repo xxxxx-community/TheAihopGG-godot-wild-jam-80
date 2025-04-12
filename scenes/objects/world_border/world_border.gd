@@ -5,7 +5,7 @@ class_name WorldBorder
 
 @onready var collision_shape_2d = get_node("CollisionShape2D")
 
-func _ready():
+func _configure_border():
 	collision_shape_2d.shape.normal = border_normal
 	if border_normal == Vector2.UP or border_normal == Vector2.DOWN:
 		collision_shape_2d.shape.distance = GlobalVars.world.world_size.y / 2
@@ -13,3 +13,4 @@ func _ready():
 		collision_shape_2d.shape.distance = GlobalVars.world.world_size.x / 2
 	else:
 		printerr("CRITICAL: `border_normal` must be a direction")
+		get_tree().quit(1)
