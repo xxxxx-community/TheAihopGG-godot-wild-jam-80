@@ -9,7 +9,7 @@ class_name HealthComponent
 
 @onready var invulnerability_timer: Timer = get_node("%InvulnerabilityTimer")
 
-var temporary_invulnerability_is_enabled: bool = true
+var temporary_invulnerability_is_enabled: bool = false
 
 signal health_reduced(old_health: int, new_health: int)
 signal damage_took(damage_count: int)

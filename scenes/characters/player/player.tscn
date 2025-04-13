@@ -12,6 +12,8 @@ speed = 100.0
 show_health = true
 health = 100
 max_health = 100
+invulnerability_time = 1.0
+health_replenish_is_enabled = false
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]
 unique_name_in_owner = true
