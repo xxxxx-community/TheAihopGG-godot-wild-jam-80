@@ -17,7 +17,6 @@ func _ready():
 	super._ready()
 
 func _process(delta: float) -> void:
-	print(total_weapon_index)
 	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if Input.is_action_just_pressed("shoot"):
 		if weapons:
