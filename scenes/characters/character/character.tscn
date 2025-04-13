@@ -27,7 +27,17 @@ parent = NodePath("../..")
 
 [node name="HealthLabel" type="Label" parent="Labels"]
 unique_name_in_owner = true
-offset_left = -20.0
-offset_top = -32.0
-offset_right = 20.0
-offset_bottom = -9.0
+offset_top = -57.0
+offset_right = 40.0
+offset_bottom = -34.0
+
+[node name="SpeedLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
+offset_top = -23.0
+offset_right = 40.0
+
+[node name="NameLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
+offset_top = -45.0
+offset_right = 40.0
+offset_bottom = -22.0

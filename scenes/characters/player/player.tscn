@@ -9,7 +9,7 @@
 script = ExtResource("2_t61fv")
 character_name = "Alexey"
 speed = 100.0
-show_health = true
+show_health_label = true
 health = 100
 max_health = 100
 invulnerability_time = 1.0
@@ -20,3 +20,24 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_686vu")
+
+[node name="HealthLabel" parent="Labels" index="0"]
+offset_left = -20.0
+offset_top = -81.0
+offset_right = 20.0
+offset_bottom = -58.0
+text = "1"
+
+[node name="SpeedLabel" parent="Labels" index="1"]
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = -17.0
+text = "1"
+
+[node name="NameLabel" parent="Labels" index="2"]
+offset_left = -20.0
+offset_top = -60.0
+offset_right = 20.0
+offset_bottom = -37.0
+text = "1"
