@@ -3,6 +3,7 @@ class_name Player
 
 func _ready():
 	GlobalVars.player = self
+	# TODO: fix
 	health_component.health = health
 	health_component.max_health = max_health
 	health_component.invulnerability_time = invulnerability_time
