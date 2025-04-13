@@ -10,6 +10,8 @@ radius = 19.0263
 
 [node name="Enemy" groups=["enemy"] instance=ExtResource("1_8ucer")]
 script = ExtResource("2_gkyfy")
+collide_damage = 10
+collide_damage_duration = 1.0
 character_name = "Enemy"
 speed = 100.0
 show_health_label = true
@@ -20,10 +22,17 @@ show_speed_label = true
 shape = SubResource("CircleShape2D_gkyfy")
 debug_color = Color(0.996078, 0, 0, 0.419608)
 
+[node name="CollideDamageTimer" type="Timer" parent="Timers" index="0"]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="AttackArea" type="Area2D" parent="." index="6"]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" index="0"]
 shape = SubResource("CircleShape2D_t2ilc")
+debug_color = Color(0.608941, 0.539551, 0, 0.42)
 
+[connection signal="timeout" from="Timers/CollideDamageTimer" to="." method="_on_collide_damage_timer_timeout"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

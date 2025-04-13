@@ -19,6 +19,7 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_686vu")
+debug_color = Color(5.77569e-07, 0.746988, 0.340597, 0.419608)
 
 [node name="HealthLabel" parent="Labels" index="0"]
 offset_left = -20.0

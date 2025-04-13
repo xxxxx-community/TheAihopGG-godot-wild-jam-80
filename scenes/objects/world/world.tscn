@@ -15,7 +15,12 @@ unique_name_in_owner = true
 [node name="Characters" type="Node" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource("3_neq0c")]
+speed = 1000.0
+invulnerability_time = 2.0
+show_health_label = true
+show_name_label = true
+show_speed_label = true
 
-[node name="Enemy" parent="Characters" node_paths=PackedStringArray("target") instance=ExtResource("4_neq0c")]
+[node name="Enemy" parent="Characters" node_paths=PackedStringArray("default_target") instance=ExtResource("4_neq0c")]
 position = Vector2(129, 90)
-target = NodePath("../Player")
+default_target = NodePath("../Player")
