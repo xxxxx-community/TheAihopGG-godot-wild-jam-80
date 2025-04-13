@@ -12,11 +12,10 @@ var can_shoot: bool = true
 func _ready():
 	assert(bullet)
 
-func _shoot(target_vector: Vector2, target_groups: Array):
-	print(can_shoot)
+func _shoot(target_vector: Vector2, target_groups: Array[String]):
 	if can_shoot:
 		var bullet_instance: Bullet = bullet.instantiate()
-		bullet_instance.target_groups = ["enemy"]
+		bullet_instance.target_groups = target_groups
 		bullet_instance.target_global_position = target_vector
 		bullet_instance.parent = parent
 		add_child(bullet_instance)

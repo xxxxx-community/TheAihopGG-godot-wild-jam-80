@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://osff4b4kntj4"]
+[gd_scene load_steps=5 format=3 uid="uid://osff4b4kntj4"]
 
 [ext_resource type="Script" uid="uid://8n87xxfrg1wu" path="res://scenes/objects/world/world.gd" id="1_gmxm5"]
 [ext_resource type="PackedScene" uid="uid://5bh1m3ruoeml" path="res://scenes/objects/world_borders/world_borders.tscn" id="3_3kq53"]
 [ext_resource type="PackedScene" uid="uid://dy3tbnu1cbd80" path="res://scenes/characters/player/player.tscn" id="3_neq0c"]
+[ext_resource type="PackedScene" uid="uid://bwulfswkp185v" path="res://scenes/characters/enemies/square_enemy/square_enemy.tscn" id="4_neq0c"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_gmxm5")
@@ -15,3 +16,8 @@ collision_mask = 2
 [node name="Characters" type="Node" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource("3_neq0c")]
+
+[node name="SquareEnemy" parent="Characters" node_paths=PackedStringArray("default_target") instance=ExtResource("4_neq0c")]
+position = Vector2(239, -9)
+shoot_duration = 2.0
+default_target = NodePath("../Player")

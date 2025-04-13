@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwulfswkp185v"]
+
+[ext_resource type="PackedScene" uid="uid://dxspf3653vgjx" path="res://scenes/characters/enemies/enemy/enemy.tscn" id="1_7b5ba"]
+[ext_resource type="Script" uid="uid://bgdufvineu8xt" path="res://scenes/characters/enemies/square_enemy/square_enemy.gd" id="2_ke3jm"]
+[ext_resource type="PackedScene" uid="uid://cmrlwjtvnu1ep" path="res://scenes/objects/weapons/square_enemy_weapon/square_enemy_weapon.tscn" id="3_0shrc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlr2w"]
+size = Vector2(29, 29)
+
+[node name="SquareEnemy" instance=ExtResource("1_7b5ba")]
+script = ExtResource("2_ke3jm")
+shoot_duration = 5.0
+collide_damage = 15
+character_name = "Square"
+speed = 40.0
+health = 100
+max_health = 100
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_qlr2w")
+
+[node name="ShootTimer" type="Timer" parent="Timers" index="1"]
+unique_name_in_owner = true
+
+[node name="Weapons" type="Node" parent="." index="7"]
+
+[node name="SquareEnemyWeapon" parent="Weapons" index="0" node_paths=PackedStringArray("parent") instance=ExtResource("3_0shrc")]
+unique_name_in_owner = true
+parent = NodePath("../..")
+
+[connection signal="timeout" from="Timers/ShootTimer" to="." method="_on_shoot_timer_timeout"]
