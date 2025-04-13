@@ -14,9 +14,6 @@ collide_damage = 10
 collide_damage_duration = 1.0
 character_name = "Enemy"
 speed = 100.0
-show_health_label = true
-show_name_label = true
-show_speed_label = true
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_gkyfy")
