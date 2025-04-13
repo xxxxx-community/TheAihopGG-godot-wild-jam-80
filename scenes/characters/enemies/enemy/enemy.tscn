@@ -9,6 +9,7 @@
 radius = 19.0263
 
 [node name="Enemy" groups=["enemy"] instance=ExtResource("1_8ucer")]
+collision_layer = 6
 script = ExtResource("2_gkyfy")
 collide_damage = 10
 collide_damage_duration = 1.0
@@ -25,6 +26,8 @@ one_shot = true
 
 [node name="AttackArea" type="Area2D" parent="." index="6"]
 unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" index="0"]
 shape = SubResource("CircleShape2D_t2ilc")

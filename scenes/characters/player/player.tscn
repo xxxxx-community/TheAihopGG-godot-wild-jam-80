@@ -9,6 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_686vu"]
 
 [node name="Player" node_paths=PackedStringArray("weapons") groups=["player"] instance=ExtResource("1_7uws0")]
+collision_layer = 10
 script = ExtResource("2_t61fv")
 weapons = [NodePath("Weapons/PlayerWeapon"), NodePath("Weapons/LaserWeapon")]
 default_weapon_index = 0

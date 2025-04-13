@@ -11,10 +11,14 @@ world_size = Vector2(1000, 1000)
 
 [node name="WorldBorders" parent="." instance=ExtResource("3_3kq53")]
 unique_name_in_owner = true
+collision_mask = 2
 
 [node name="Characters" type="Node" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource("3_neq0c")]
-speed = 1000.0
 
 [node name="Enemy" parent="Characters" instance=ExtResource("4_neq0c")]
+position = Vector2(91, 89)
+speed = 60.0
+health = 10
+max_health = 10

@@ -3,10 +3,14 @@
 [ext_resource type="Script" uid="uid://bdmypurkybven" path="res://scenes/objects/bullets/bullet/bullet.gd" id="1_rcpd2"]
 
 [node name="Bullet" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_rcpd2")
 
 [node name="AttackArea" type="Area2D" parent="."]
 unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 debug_color = Color(0.485295, 0.435195, 1, 0.42)

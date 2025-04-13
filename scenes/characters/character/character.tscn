@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b0s4csym8bf2n" path="res://scenes/components/health_component/health_component.tscn" id="2_y0djf"]
 
 [node name="Character" type="CharacterBody2D" groups=["character"]]
+collision_layer = 2
 script = ExtResource("1_fnnly")
 show_health_label = true
 show_name_label = true
