@@ -13,7 +13,7 @@ func _ready():
 	speed_label.visible = show_speed_label
 
 func _process(delta: float) -> void:
-	move_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if Input.is_action_just_pressed("ui_home"):
 		if show_health_label:
 			show_health_label = false
