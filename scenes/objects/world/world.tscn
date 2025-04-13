@@ -14,8 +14,3 @@ unique_name_in_owner = true
 [node name="Characters" type="Node" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource("3_neq0c")]
-health = 0
-max_health = 0
-invulnerability_time = 0.0
-health_replenish_is_enabled = true
-invulnerability_is_enabled = false

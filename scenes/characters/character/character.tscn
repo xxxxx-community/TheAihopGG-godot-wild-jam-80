@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://eef514p0jwil"]
+[gd_scene load_steps=3 format=3 uid="uid://eef514p0jwil"]
 
 [ext_resource type="Script" uid="uid://dm2ssfd2pebxs" path="res://scenes/characters/character/character.gd" id="1_fnnly"]
+[ext_resource type="PackedScene" uid="uid://b0s4csym8bf2n" path="res://scenes/components/health_component/health_component.tscn" id="2_y0djf"]
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_fnnly")
@@ -17,3 +18,16 @@ unique_name_in_owner = true
 [node name="Timers" type="Node" parent="."]
 
 [node name="Components" type="Node" parent="."]
+
+[node name="HealthComponent" parent="Components" node_paths=PackedStringArray("parent") instance=ExtResource("2_y0djf")]
+unique_name_in_owner = true
+parent = NodePath("../..")
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="HealthLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = -9.0
