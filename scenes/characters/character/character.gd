@@ -24,19 +24,16 @@ class_name Character
 @export_category("Labels")
 @export var show_health_label: bool = false:
 	set(value):
-		print(value)
 		show_health_label = value
 		if health_label:
 			health_label.visible = value
 @export var show_name_label: bool = false:
 	set(value):
-		print(value)
 		show_name_label = value
 		if name_label:
 			name_label.visible = value
 @export var show_speed_label: bool = false:
 	set(value):
-		print(value)
 		show_speed_label = value
 		if speed_label:
 			speed_label.visible = value
