@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy3tbnu1cbd80"]
+[gd_scene load_steps=5 format=3 uid="uid://dy3tbnu1cbd80"]
 
 [ext_resource type="PackedScene" uid="uid://eef514p0jwil" path="res://scenes/characters/character/character.tscn" id="1_7uws0"]
 [ext_resource type="Script" uid="uid://c1fopkrigjctb" path="res://scenes/characters/player/player.gd" id="2_t61fv"]
+[ext_resource type="PackedScene" uid="uid://cxecsqpalmkf4" path="res://scenes/objects/bullets/bullet/bullet.tscn" id="3_686vu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_686vu"]
 
 [node name="Player" groups=["player"] instance=ExtResource("1_7uws0")]
 script = ExtResource("2_t61fv")
+bullet = ExtResource("3_686vu")
 character_name = "Alexey"
 speed = 100.0
 health = 100

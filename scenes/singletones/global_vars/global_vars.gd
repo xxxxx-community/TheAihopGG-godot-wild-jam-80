@@ -5,3 +5,4 @@ extends Node
 
 class AnimationsNames:
 	static var death: String = "death"
+	static var hit: String = "hit"
