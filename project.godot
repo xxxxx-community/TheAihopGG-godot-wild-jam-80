@@ -28,6 +28,12 @@ window/size/viewport_height=600
 
 project/assembly_name="TheAihopgg-godot-wild-jam-80"
 
+[global_group]
+
+player=""
+character=""
+enemy=""
+
 [input]
 
 move_up={

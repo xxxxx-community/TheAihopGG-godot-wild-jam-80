@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Character
 
 @onready var health_component: HealthComponent = get_node("%HealthComponent")
+@onready var collision_shape_2d: CollisionShape2D = get_node("%CollisionShape2D")
 @onready var animation_player: AnimationPlayer = get_node("%AnimationPlayer")
 @onready var animated_sprite_2d: AnimatedSprite2D = get_node("%AnimatedSprite2D")
 @onready var health_label: Label = get_node("%HealthLabel")
@@ -43,6 +44,7 @@ class_name Character
 var move_direction: Vector2 = default_move_direction
 
 func _ready():
+	collision_shape_2d.debug_color = GlobalVars.CollisionShapeDebugColors.character
 	health_component.health = health
 	health_component.max_health = max_health
 	health_component.invulnerability_time = invulnerability_time
@@ -54,7 +56,10 @@ func _ready():
 
 func _process(_delta):
 	if movement_is_enabled:
-		velocity = speed * move_direction.normalized()
+		if move_direction.is_normalized():
+			velocity = speed * move_direction
+		else:
+			velocity = speed * move_direction.normalized()
 	show_labels()
 	move_and_slide()
 

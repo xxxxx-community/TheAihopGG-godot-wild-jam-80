@@ -1,9 +1,10 @@
 extends Character
-class_name Player
+class_name Enemy
+
+@export var target: Character
 
 func _ready():
-	GlobalVars.player = self
-	collision_shape_2d.debug_color = GlobalVars.CollisionShapeDebugColors.player
+	collision_shape_2d.debug_color = GlobalVars.CollisionShapeDebugColors.enemy
 	health_component.health = health
 	health_component.max_health = max_health
 	health_component.invulnerability_time = invulnerability_time
@@ -13,11 +14,6 @@ func _ready():
 	name_label.visible = show_name_label
 	speed_label.visible = show_speed_label
 
-func _process(delta: float) -> void:
-	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	if Input.is_action_just_pressed("ui_home"):
-		if show_health_label:
-			show_health_label = false
-		else:
-			show_health_label = true
+func _process(delta):
+	move_direction = (target.global_position - global_position).normalized()
 	super._process(delta)
