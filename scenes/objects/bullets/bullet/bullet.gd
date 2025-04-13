@@ -4,6 +4,7 @@ class_name Bullet
 @export var speed: float = 1000
 @export var damage: int = 10
 @export var lifetime: float = 10
+@export var delete_after_hit: bool = true
 
 @onready var attack_area: Area2D = get_node("%AttackArea")
 @onready var animation_player: AnimationPlayer = get_node("%AnimationPlayer")
@@ -12,9 +13,15 @@ class_name Bullet
 var move_direction: Vector2
 var target_groups: Array[String]
 var target_global_position: Vector2
+var parent: Character
+
+signal lifetime_expired()
+signal hit(character: Character)
 
 func _ready():
+	global_position = parent.global_position
 	move_direction = (target_global_position - global_position).normalized()
+	look_at(target_global_position)
 	lifetime_timer.start(lifetime)
 
 func _process(_delta):
@@ -34,7 +41,10 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 		if GlobalVars.AnimationsNames.hit in animation_player.get_animation_list():
 			target.play(GlobalVars.AnimationsNames.hit)
 		else:
-			queue_free()
+			hit.emit(target)
+			if delete_after_hit:
+				queue_free()
 
 func _on_lifetime_timer_timeout() -> void:
+	lifetime_expired.emit()
 	queue_free()

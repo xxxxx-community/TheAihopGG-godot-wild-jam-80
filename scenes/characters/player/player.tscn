@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy3tbnu1cbd80"]
+[gd_scene load_steps=7 format=3 uid="uid://dy3tbnu1cbd80"]
 
 [ext_resource type="PackedScene" uid="uid://eef514p0jwil" path="res://scenes/characters/character/character.tscn" id="1_7uws0"]
 [ext_resource type="Script" uid="uid://c1fopkrigjctb" path="res://scenes/characters/player/player.gd" id="2_t61fv"]
-[ext_resource type="PackedScene" uid="uid://cxecsqpalmkf4" path="res://scenes/objects/bullets/bullet/bullet.tscn" id="3_686vu"]
+[ext_resource type="PackedScene" uid="uid://c2iuod4ue6usr" path="res://scenes/objects/weapons/player_weapon/player_weapon.tscn" id="3_686vu"]
+[ext_resource type="PackedScene" uid="uid://dfpmbkksexyf7" path="res://scenes/objects/weapons/laser_weapon/laser_weapon.tscn" id="4_hss88"]
+[ext_resource type="PackedScene" uid="uid://bwhhyf1kj0p2b" path="res://scenes/objects/bullets/laser_bullet/laser_bullet.tscn" id="5_qd3e3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_686vu"]
 
-[node name="Player" groups=["player"] instance=ExtResource("1_7uws0")]
+[node name="Player" node_paths=PackedStringArray("weapons") groups=["player"] instance=ExtResource("1_7uws0")]
 script = ExtResource("2_t61fv")
-bullet = ExtResource("3_686vu")
+weapons = [NodePath("Weapons/PlayerWeapon"), NodePath("Weapons/LaserWeapon")]
+default_weapon_index = 0
 character_name = "Alexey"
 speed = 100.0
 health = 100
@@ -40,3 +43,13 @@ offset_left = -20.0
 offset_top = -60.0
 offset_right = 20.0
 offset_bottom = -37.0
+
+[node name="Weapons" type="Node" parent="." index="7"]
+
+[node name="PlayerWeapon" parent="Weapons" index="0" node_paths=PackedStringArray("parent") instance=ExtResource("3_686vu")]
+parent = NodePath("../..")
+
+[node name="LaserWeapon" parent="Weapons" index="1" node_paths=PackedStringArray("parent") instance=ExtResource("4_hss88")]
+bullet = ExtResource("5_qd3e3")
+duration = 1.0
+parent = NodePath("../..")

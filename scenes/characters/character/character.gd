@@ -13,7 +13,12 @@ class_name Character
 @export_category("Movement")
 @export var speed: float
 @export var default_move_direction: Vector2 = Vector2.ZERO
-@export var movement_is_enabled: bool = true
+@export var movement_is_enabled: bool = true:
+	set(value):
+		if not value:
+			move_direction = Vector2.ZERO
+			velocity = Vector2.ZERO
+		movement_is_enabled = value
 @export var attack_is_enabled: bool = true
 @export_category("Health")
 @export var health: int
