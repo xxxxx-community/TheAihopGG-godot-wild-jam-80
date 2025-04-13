@@ -35,6 +35,7 @@ func _take_damage(damage_count: int):
 	if not temporary_invulnerability_is_enabled and not invulnerability_is_enabled:
 		reduce_health(-damage_count)
 		damage_took.emit(damage_count)
+		temporary_invulnerability_is_enabled = true
 		invulnerability_timer.start(invulnerability_time)
 
 func _replenish_health(health_count: int):
