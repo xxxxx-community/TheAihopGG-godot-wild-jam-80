@@ -1,7 +1,11 @@
 extends Component
 class_name HealthComponent
 
-@export var health: int
+@export var health: int:
+	set(value):
+		health = value
+		if parent:
+			parent.health_label.text = "health: " + str(value)
 @export var max_health: int
 @export var invulnerability_time: float
 @export var health_replenish_is_enabled: bool = true

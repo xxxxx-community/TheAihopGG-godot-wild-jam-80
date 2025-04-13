@@ -19,6 +19,8 @@ func _ready():
 	health_label.visible = show_health_label
 	name_label.visible = show_name_label
 	speed_label.visible = show_speed_label
+	speed_label.text = "speed: " + str(speed)
+	name_label.text = "name: " + str(character_name)
 	if not default_target:
 		default_target = GlobalVars.player
 

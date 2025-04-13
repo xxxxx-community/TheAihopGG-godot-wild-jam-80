@@ -9,9 +9,17 @@ class_name Character
 @onready var speed_label: Label = get_node("%SpeedLabel")
 @onready var name_label: Label = get_node("%NameLabel")
 
-@export var character_name: String
+@export var character_name: String:
+	set(value):
+		character_name = value
+		if name_label:
+			name_label.text = "name: " + str(character_name)
 @export_category("Movement")
-@export var speed: float
+@export var speed: float:
+	set(value):
+		speed = value
+		if speed_label:
+			speed_label.text = "speed: " + str(value)
 @export var default_move_direction: Vector2 = Vector2.ZERO
 @export var movement_is_enabled: bool = true:
 	set(value):
@@ -54,6 +62,9 @@ func _ready():
 	health_label.visible = show_health_label
 	name_label.visible = show_name_label
 	speed_label.visible = show_speed_label
+	speed_label.text = "speed: " + str(speed)
+	name_label.text = "name: " + str(character_name)
+	health_label.text = "health: " + str(health_component.health)
 
 func _process(_delta):
 	if movement_is_enabled:
@@ -61,10 +72,4 @@ func _process(_delta):
 			velocity = speed * move_direction
 		else:
 			velocity = speed * move_direction.normalized()
-	show_labels()
 	move_and_slide()
-
-func show_labels():
-	health_label.text = "health: " + str(health_component.health)
-	speed_label.text = "speed: " + str(speed)
-	name_label.text = "name: " + str(character_name)

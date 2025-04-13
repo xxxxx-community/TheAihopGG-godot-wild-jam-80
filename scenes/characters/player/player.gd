@@ -22,6 +22,8 @@ func _ready():
 	health_label.visible = show_health_label
 	name_label.visible = show_name_label
 	speed_label.visible = show_speed_label
+	speed_label.text = "speed: " + str(speed)
+	name_label.text = "name: " + str(character_name)
 
 func _process(delta: float) -> void:
 	print(total_weapon_index)
