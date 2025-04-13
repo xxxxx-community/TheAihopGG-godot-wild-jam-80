@@ -28,7 +28,7 @@ func reduce_health(health_count: int):
 		if GlobalVars.AnimationsNames.death in parent.animation_player.get_animation_list():
 			parent.animation_player.play(GlobalVars.AnimationsNames.death)
 		else:
-			queue_free()
+			parent.queue_free()
 	health_reduced.emit(health - health_count, health)
 
 func _take_damage(damage_count: int):
