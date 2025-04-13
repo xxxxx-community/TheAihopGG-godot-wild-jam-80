@@ -3,8 +3,9 @@ class_name Enemy
 
 @export var target: Character
 
+@onready var attack_area: Area2D = get_node("%AttackArea")
+
 func _ready():
-	collision_shape_2d.debug_color = GlobalVars.CollisionShapeDebugColors.enemy
 	health_component.health = health
 	health_component.max_health = max_health
 	health_component.invulnerability_time = invulnerability_time
@@ -17,3 +18,7 @@ func _ready():
 func _process(delta):
 	move_direction = (target.global_position - global_position).normalized()
 	super._process(delta)
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

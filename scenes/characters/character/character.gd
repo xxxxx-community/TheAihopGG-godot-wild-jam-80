@@ -44,7 +44,6 @@ class_name Character
 var move_direction: Vector2 = default_move_direction
 
 func _ready():
-	collision_shape_2d.debug_color = GlobalVars.CollisionShapeDebugColors.character
 	health_component.health = health
 	health_component.max_health = max_health
 	health_component.invulnerability_time = invulnerability_time
