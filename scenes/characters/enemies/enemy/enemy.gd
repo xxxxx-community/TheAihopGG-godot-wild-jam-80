@@ -16,10 +16,6 @@ func _ready():
 	if not default_target:
 		default_target = GlobalVars.player
 
-func _process(delta):
-	move_direction = (default_target.global_position - global_position).normalized()
-	super._process(delta)
-
 func is_target(body: Node2D) -> bool:
 	for group in default_target.get_groups():
 		if not body.is_in_group(group):
