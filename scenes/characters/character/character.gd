@@ -2,10 +2,12 @@ extends CharacterBody2D
 class_name Character
 
 @export var character_name: String
+@export_category("Movement")
 @export var speed: float
 @export var default_move_direction: Vector2 = Vector2.ZERO
 @export var movement_is_enabled: bool = true
 @export var attack_is_enabled: bool = true
+@export_category("Health")
 @export var show_health: bool = false
 @export var health: int
 @export var max_health: int
