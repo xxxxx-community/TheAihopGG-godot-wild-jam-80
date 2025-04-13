@@ -11,16 +11,7 @@ class_name Enemy
 var target: Character
 
 func _ready():
-	health_component.health = health
-	health_component.max_health = max_health
-	health_component.invulnerability_time = invulnerability_time
-	health_component.health_replenish_is_enabled = health_replenish_is_enabled
-	health_component.invulnerability_is_enabled = invulnerability_is_enabled
-	health_label.visible = show_health_label
-	name_label.visible = show_name_label
-	speed_label.visible = show_speed_label
-	speed_label.text = "speed: " + str(speed)
-	name_label.text = "name: " + str(character_name)
+	super._ready()
 	if not default_target:
 		default_target = GlobalVars.player
 
