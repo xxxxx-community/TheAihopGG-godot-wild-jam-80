@@ -10,7 +10,6 @@ class_name Enemy
 @onready var attack_area: Area2D = get_node("%AttackArea")
 
 var total_target: Character
-
 func is_target(body: Node2D) -> bool:
 	for group in target.get_groups():
 		if not body.is_in_group(group):

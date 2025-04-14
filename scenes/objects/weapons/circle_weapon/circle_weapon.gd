@@ -1,6 +1,6 @@
 extends Weapon
 
-func get_shoot_directions(target_vector: Vector2) -> Array[Vector2]:
+func get_shoot_vectors(target_vector: Vector2) -> Array[Vector2]:
 	return [
 		target_vector,
 		Vector2(-target_vector.x, -target_vector.y),

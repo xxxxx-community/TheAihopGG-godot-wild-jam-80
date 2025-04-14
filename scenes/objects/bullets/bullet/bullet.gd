@@ -13,12 +13,14 @@ class_name Bullet
 var move_direction: Vector2
 var target_groups: Array[String]
 var parent: Character
+var target_vector: Vector2
 
 signal lifetime_expired()
 signal hit(character: Character)
 
-func _setup(_move_direction: Vector2, _target_groups: Array[String], _parent: Character):
-	move_direction = _move_direction
+func _setup(_parent: Character, _target_vector: Vector2, _target_groups: Array[String]):
+	target_vector = _target_vector
+	move_direction = _target_vector.normalized()
 	target_groups = _target_groups
 	parent = _parent
 
