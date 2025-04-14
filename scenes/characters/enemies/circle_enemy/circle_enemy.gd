@@ -12,11 +12,11 @@ func _ready():
 	shoot_timer.start()
 
 func _process(delta):
-	if global_position.distance_to(default_target.global_position) > min_distance_to_target:
-		move_direction = (default_target.global_position - global_position).normalized()
+	if global_position.distance_to(target.global_position) > min_distance_to_target:
+		move_direction = (target.global_position - global_position).normalized()
 	else:
-		move_direction = -(default_target.global_position - global_position).normalized()
+		move_direction = -(target.global_position - global_position).normalized()
 	super._process(delta)
 
 func _on_shoot_timer_timeout() -> void:
-	circle_weapon._shoot((default_target.global_position - global_position).normalized(), ["player"])
+	circle_weapon._shoot((target.global_position - global_position).normalized(), ["player"])

@@ -1,7 +1,7 @@
 extends Character
 class_name Enemy
 
-@export var default_target: Character
+@export var target: Character
 @export var collide_damage: int
 @export var collide_damage_duration: float
 @export var enemy_type: GlobalVars.enemy_types = GlobalVars.enemy_types.JUNIOR
@@ -11,13 +11,8 @@ class_name Enemy
 
 var total_target: Character
 
-func _ready():
-	super._ready()
-	if not default_target:
-		default_target = GlobalVars.player
-
 func is_target(body: Node2D) -> bool:
-	for group in default_target.get_groups():
+	for group in target.get_groups():
 		if not body.is_in_group(group):
 			return false
 	return true
