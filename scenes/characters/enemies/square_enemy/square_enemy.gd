@@ -1,6 +1,6 @@
 extends Enemy
 
-@export var shoot_duration: float = 5
+@export var shoot_duration: float
 
 @onready var shoot_timer: Timer = get_node("%ShootTimer")
 @onready var square_enemy_weapon: Weapon = get_node("%SquareEnemyWeapon")

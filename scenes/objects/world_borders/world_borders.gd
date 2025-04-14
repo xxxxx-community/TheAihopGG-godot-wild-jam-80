@@ -9,6 +9,7 @@ class_name WorldBorders
 func _set_borders():
 	var x_distance: float = -(GlobalVars.world.world_size.x / 2)
 	var y_distance: float = -(GlobalVars.world.world_size.y / 2)
+	
 	top_border.shape.distance = y_distance
 	bottom_border.shape.distance = y_distance
 	right_border.shape.distance = x_distance

@@ -14,6 +14,8 @@ class_name Character
 		character_name = value
 		if name_label:
 			name_label.text = "name: " + str(character_name)
+@export var attack_is_enabled: bool = true
+
 @export_category("Movement")
 @export var speed: float:
 	set(value):
@@ -27,24 +29,27 @@ class_name Character
 			move_direction = Vector2.ZERO
 			velocity = Vector2.ZERO
 		movement_is_enabled = value
-@export var attack_is_enabled: bool = true
+
 @export_category("Health")
 @export var health: int
 @export var max_health: int
 @export var invulnerability_time: float
 @export var health_replenish_is_enabled: bool = true
 @export var invulnerability_is_enabled: bool = false # note: don t use invulnerability_is_enabled, use health_component.invulnerability_is_enabled
+
 @export_category("Labels")
 @export var show_health_label: bool = false:
 	set(value):
 		show_health_label = value
 		if health_label:
 			health_label.visible = value
+
 @export var show_name_label: bool = false:
 	set(value):
 		show_name_label = value
 		if name_label:
 			name_label.visible = value
+			
 @export var show_speed_label: bool = false:
 	set(value):
 		show_speed_label = value

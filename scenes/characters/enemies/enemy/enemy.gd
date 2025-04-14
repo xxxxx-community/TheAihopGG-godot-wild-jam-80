@@ -2,8 +2,8 @@ extends Character
 class_name Enemy
 
 @export var default_target: Character
-@export var collide_damage: int = 10
-@export var collide_damage_duration: float = 1
+@export var collide_damage: int
+@export var collide_damage_duration: float
 @export var enemy_type: GlobalVars.enemy_types = GlobalVars.enemy_types.JUNIOR
 
 @onready var collide_damage_timer = get_node("%CollideDamageTimer")

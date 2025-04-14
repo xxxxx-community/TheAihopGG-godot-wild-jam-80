@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Bullet
 
-@export var speed: float = 1000
-@export var damage: int = 10
+@export var speed: float
+@export var damage: int
 @export var lifetime: float = 10
 @export var delete_after_hit: bool = true
 

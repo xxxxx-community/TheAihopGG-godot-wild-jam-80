@@ -7,12 +7,3 @@ func get_shoot_directions(target_vector: Vector2) -> Array[Vector2]:
 		Vector2(-target_vector.y, target_vector.x),
 		Vector2(target_vector.y, -target_vector.x)
 	]
-
-func _shoot(target_direction: Vector2, target_groups: Array[String]):
-	if can_shoot:
-		for direction in get_shoot_directions(target_direction):
-			var bullet_instance = bullet.instantiate()
-			bullet_instance._setup(direction, target_groups, parent)	
-			add_child(bullet_instance)
-		can_shoot = false
-		duration_timer.start(duration)
