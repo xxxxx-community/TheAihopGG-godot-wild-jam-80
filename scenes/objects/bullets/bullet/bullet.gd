@@ -12,16 +12,14 @@ class_name Bullet
 
 var move_direction: Vector2
 var target_groups: Array[String]
-var target_global_position: Vector2
 var parent: Character
 
 signal lifetime_expired()
 signal hit(character: Character)
 
 func _ready():
+	look_at(move_direction)
 	global_position = parent.global_position
-	move_direction = (target_global_position - global_position).normalized()
-	look_at(target_global_position)
 	lifetime_timer.start(lifetime)
 
 func _process(_delta):

@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if Input.is_action_just_pressed("shoot"):
 		if weapons:
-			weapons[total_weapon_index]._shoot(get_global_mouse_position(), ["enemy"])
+			weapons[total_weapon_index]._shoot((get_global_mouse_position() - global_position).normalized(), ["enemy"])
 	if Input.is_action_just_pressed("select_weapon_1"):
 		total_weapon_index = 0
 	if Input.is_action_just_pressed("select_weapon_2"):

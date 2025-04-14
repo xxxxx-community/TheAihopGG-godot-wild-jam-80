@@ -12,13 +12,19 @@ var can_shoot: bool = true
 func _ready():
 	assert(bullet)
 
-func _shoot(target_vector: Vector2, target_groups: Array[String]):
+func get_shoot_directions(target_vector: Vector2) -> Array[Vector2]:
+	return [target_vector]
+
+func _shoot(target_direction: Vector2, target_groups: Array[String]):
 	if can_shoot:
-		var bullet_instance: Bullet = bullet.instantiate()
-		bullet_instance.target_groups = target_groups
-		bullet_instance.target_global_position = target_vector
-		bullet_instance.parent = parent
-		add_child(bullet_instance)
+		for direction in get_shoot_directions(target_direction):
+			var bullet_instance = bullet.instantiate()
+
+			bullet_instance.target_groups = target_groups
+			bullet_instance.parent = parent
+			bullet_instance.move_direction = direction
+			
+			add_child(bullet_instance)
 		can_shoot = false
 		duration_timer.start(duration)
 
