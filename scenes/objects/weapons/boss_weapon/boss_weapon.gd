@@ -1,4 +1,5 @@
 extends Weapon
+class_name BossWeapon
 
 @export var count: int
 

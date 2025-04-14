@@ -6,7 +6,7 @@
 
 [node name="ShotgunWeapon" instance=ExtResource("1_k7xrk")]
 script = ExtResource("2_bf8c4")
-count = 6
-shoot_angle = 30
+count = 20
+shoot_angle = 60
 bullet = ExtResource("3_ea6jp")
 duration = 3.0

@@ -62,3 +62,4 @@ parent = NodePath("../..")
 [connection signal="timeout" from="Timers/ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="Timers/UpdateTotalPointTimer" to="." method="_on_update_total_point_timer_timeout"]
 [connection signal="timeout" from="Timers/SpawnEnemyTimer" to="." method="_on_spawn_enemy_timer_timeout"]
+[connection signal="health_reduced" from="Components/HealthComponent" to="." method="_on_health_component_health_reduced"]
