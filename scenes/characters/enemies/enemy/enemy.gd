@@ -9,7 +9,7 @@ class_name Enemy
 @onready var collide_damage_timer = get_node("%CollideDamageTimer")
 @onready var attack_area: Area2D = get_node("%AttackArea")
 
-var target: Character
+var total_target: Character
 
 func _ready():
 	super._ready()
@@ -24,15 +24,15 @@ func is_target(body: Node2D) -> bool:
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if is_target(body):
-		target = body
-		target.health_component._take_damage(collide_damage)
+		total_target = body
+		total_target.health_component._take_damage(collide_damage)
 		collide_damage_timer.start(collide_damage_duration)
 
 func _on_collide_damage_timer_timeout() -> void:
-	if target:
-		target.health_component._take_damage(collide_damage)
+	if total_target:
+		total_target.health_component._take_damage(collide_damage)
 		collide_damage_timer.start(collide_damage_duration)
 
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if is_target(body):
-		target = null
+		total_target = null
