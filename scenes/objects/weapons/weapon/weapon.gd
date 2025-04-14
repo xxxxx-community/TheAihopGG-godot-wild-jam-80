@@ -3,7 +3,7 @@ class_name Weapon
 
 @export var bullet: PackedScene
 @export var duration: float
-@export var parent: Character = self.get_parent().get_parent()
+@export var parent: Character = self.get_parent().get_parent() if self.get_parent() else null
 
 @onready var duration_timer: Timer = get_node("%DurationTimer")
 
