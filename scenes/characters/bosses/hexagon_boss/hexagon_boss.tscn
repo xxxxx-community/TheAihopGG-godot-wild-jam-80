@@ -14,7 +14,6 @@ size = Vector2(92, 86)
 size = Vector2(114, 108)
 
 [node name="HexagonBoss" instance=ExtResource("1_tbx04")]
-collision_mask = 1
 script = ExtResource("2_1bw5v")
 shoot_time = 1.0
 spawn_enemy_time = 1.0

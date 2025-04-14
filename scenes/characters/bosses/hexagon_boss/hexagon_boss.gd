@@ -22,6 +22,8 @@ func _ready():
 
 func _process(delta):
 	move_direction = (total_point - global_position).normalized()
+	if global_position.distance_to(total_point) <= 10:
+		total_point = get_random_vector_near_player()
 	super._process(delta)
 
 func _on_shoot_timer_timeout() -> void:
@@ -30,15 +32,13 @@ func _on_shoot_timer_timeout() -> void:
 	else:
 		boss_weapon._shoot(target.global_position - global_position, ["player"])
 
+func get_random_vector_near_player() -> Vector2:
+	return Vector2(
+		randi_range(target.position.x / 2, target.position.x * 2),
+		randi_range(target.position.y / 2, target.position.y * 2)
+	)
 func _on_update_total_point_timer_timeout() -> void:
-	total_point.x = randi_range(target.position.x / 10, target.position.x * 10)
-	total_point.y = randi_range(target.position.y / 10, target.position.y * 10)
+	total_point = get_random_vector_near_player()
 
 func _on_spawn_enemy_timer_timeout() -> void:
-	player_weapon._shoot(
-		Vector2(
-			randi_range(target.position.x / 10, target.position.x * 10),
-			randi_range(target.position.y / 10, target.position.y * 10)
-		),
-		[]
-	)
+	player_weapon._shoot(get_random_vector_near_player(), [])
