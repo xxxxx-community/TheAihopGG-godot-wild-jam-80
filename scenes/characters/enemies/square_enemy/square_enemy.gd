@@ -14,4 +14,4 @@ func _process(delta):
 	super._process(delta)
 
 func _on_shoot_timer_timeout() -> void:
-	square_enemy_weapon._shoot(default_target.global_position, ["player"])
+	square_enemy_weapon._shoot((default_target.global_position - global_position).normalized(), ["player"])
