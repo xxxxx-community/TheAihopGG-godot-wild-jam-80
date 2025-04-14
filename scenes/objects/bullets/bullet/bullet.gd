@@ -17,6 +17,11 @@ var parent: Character
 signal lifetime_expired()
 signal hit(character: Character)
 
+func _setup(_move_direction: Vector2, _target_groups: Array[String], _parent: Character):
+	move_direction = _move_direction
+	target_groups = _target_groups
+	parent = _parent
+
 func _ready():
 	look_at(move_direction)
 	global_position = parent.global_position
