@@ -7,4 +7,4 @@
 [node name="CircleWeapon" instance=ExtResource("1_wbxsu")]
 script = ExtResource("2_ptx0u")
 bullet = ExtResource("3_2yxmk")
-duration = 0.0
+duration = 3.0

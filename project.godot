@@ -28,6 +28,17 @@ window/size/viewport_height=600
 
 project/assembly_name="TheAihopgg-godot-wild-jam-80"
 
+[file_customization]
+
+folder_colors={
+"res://scenes/characters/": "gray",
+"res://scenes/characters/character/": "gray",
+"res://scenes/characters/enemies/": "red",
+"res://scenes/characters/player/": "green",
+"res://scenes/objects/bullets/": "purple",
+"res://scenes/objects/weapons/": "orange"
+}
+
 [global_group]
 
 player=""

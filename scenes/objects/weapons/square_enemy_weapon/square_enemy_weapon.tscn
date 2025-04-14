@@ -3,3 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://cmf2avpjyp04f" path="res://scenes/objects/weapons/weapon/weapon.tscn" id="1_2gv1s"]
 
 [node name="SquareEnemyWeapon" instance=ExtResource("1_2gv1s")]
+duration = 3.0

@@ -9,7 +9,7 @@ size = Vector2(29, 29)
 
 [node name="SquareEnemy" instance=ExtResource("1_7b5ba")]
 script = ExtResource("2_ke3jm")
-shoot_duration = 5.0
+shoot_duration = 3.0
 collide_damage = 15
 character_name = "Square"
 speed = 40.0

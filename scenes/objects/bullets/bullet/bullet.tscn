@@ -6,6 +6,7 @@
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_rcpd2")
+speed = 600.0
 
 [node name="AttackArea" type="Area2D" parent="."]
 unique_name_in_owner = true

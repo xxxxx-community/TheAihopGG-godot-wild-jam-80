@@ -9,4 +9,4 @@ script/source = "extends Weapon
 [node name="LaserWeapon" instance=ExtResource("1_qx014")]
 script = SubResource("GDScript_qx014")
 bullet = null
-duration = 3.0
+duration = 5.0

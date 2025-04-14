@@ -6,7 +6,7 @@
 size = Vector2(13.5, 13.5)
 
 [node name="PlayerBullet" instance=ExtResource("1_7dot4")]
-damage = 50
+damage = 20
 
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
 shape = SubResource("RectangleShape2D_7dot4")

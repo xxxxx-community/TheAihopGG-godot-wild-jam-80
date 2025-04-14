@@ -6,7 +6,6 @@
 [node name="Weapon" type="Node"]
 script = ExtResource("1_4hdlk")
 bullet = ExtResource("2_6sbbx")
-duration = 0.1
 
 [node name="Timers" type="Node" parent="."]
 
