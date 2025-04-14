@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq50sj2kb3qjx"]
+
+[ext_resource type="PackedScene" uid="uid://dxspf3653vgjx" path="res://scenes/characters/enemies/enemy/enemy.tscn" id="1_s236b"]
+[ext_resource type="Script" uid="uid://cn7ogcllvoxuo" path="res://scenes/characters/enemies/circle_enemy/circle_enemy.gd" id="2_8f01s"]
+[ext_resource type="PackedScene" uid="uid://dxbtr54rk3k0a" path="res://scenes/objects/weapons/circle_weapon/circle_weapon.tscn" id="3_d34tg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d34tg"]
+radius = 25.02
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11pbf"]
+radius = 33.2415
+
+[node name="CircleEnemy" instance=ExtResource("1_s236b")]
+script = ExtResource("2_8f01s")
+shoot_time = 0.2
+min_distance_to_target = 100.0
+character_name = "Circle"
+speed = 50.0
+health = 100
+max_health = 100
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_d34tg")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+scale = Vector2(65.2369, 35.3046)
+
+[node name="ShootTimer" type="Timer" parent="Timers" index="1"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+shape = SubResource("CircleShape2D_11pbf")
+
+[node name="Weapons" type="Node" parent="." index="7"]
+
+[node name="CircleWeapon" parent="Weapons" index="0" node_paths=PackedStringArray("parent") instance=ExtResource("3_d34tg")]
+unique_name_in_owner = true
+parent = NodePath("../..")
+
+[connection signal="timeout" from="Timers/ShootTimer" to="." method="_on_shoot_timer_timeout"]

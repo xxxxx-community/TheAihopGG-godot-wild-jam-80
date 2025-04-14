@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxbtr54rk3k0a"]
+
+[ext_resource type="PackedScene" uid="uid://cmf2avpjyp04f" path="res://scenes/objects/weapons/weapon/weapon.tscn" id="1_wbxsu"]
+[ext_resource type="Script" uid="uid://b331e8vgkq7y" path="res://scenes/objects/weapons/circle_weapon/circle_weapon.gd" id="2_ptx0u"]
+[ext_resource type="PackedScene" uid="uid://6byno0c33i7s" path="res://scenes/objects/bullets/square_enemy_bullet/square_enemy_bullet.tscn" id="3_2yxmk"]
+
+[node name="CircleWeapon" instance=ExtResource("1_wbxsu")]
+script = ExtResource("2_ptx0u")
+bullet = ExtResource("3_2yxmk")
+duration = 0.0

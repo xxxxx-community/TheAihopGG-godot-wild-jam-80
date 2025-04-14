@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://8n87xxfrg1wu" path="res://scenes/objects/world/world.gd" id="1_gmxm5"]
 [ext_resource type="PackedScene" uid="uid://5bh1m3ruoeml" path="res://scenes/objects/world_borders/world_borders.tscn" id="3_3kq53"]
 [ext_resource type="PackedScene" uid="uid://dy3tbnu1cbd80" path="res://scenes/characters/player/player.tscn" id="3_neq0c"]
-[ext_resource type="PackedScene" uid="uid://dxspf3653vgjx" path="res://scenes/characters/enemies/enemy/enemy.tscn" id="4_neq0c"]
+[ext_resource type="PackedScene" uid="uid://bq50sj2kb3qjx" path="res://scenes/characters/enemies/circle_enemy/circle_enemy.tscn" id="4_neq0c"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_gmxm5")
@@ -16,9 +16,8 @@ collision_mask = 2
 [node name="Characters" type="Node" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource("3_neq0c")]
+health = 10000
+max_health = 10000
 
-[node name="Enemy" parent="Characters" instance=ExtResource("4_neq0c")]
-position = Vector2(91, 89)
-speed = 60.0
-health = 10
-max_health = 10
+[node name="CircleEnemy" parent="Characters" instance=ExtResource("4_neq0c")]
+position = Vector2(167, 50)

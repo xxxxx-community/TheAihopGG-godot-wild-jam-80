@@ -1,23 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxspf3653vgjx"]
+[gd_scene load_steps=3 format=3 uid="uid://dxspf3653vgjx"]
 
 [ext_resource type="PackedScene" uid="uid://eef514p0jwil" path="res://scenes/characters/character/character.tscn" id="1_8ucer"]
 [ext_resource type="Script" uid="uid://dvv4vbxfsa63h" path="res://scenes/characters/enemies/enemy/enemy.gd" id="2_gkyfy"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gkyfy"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_t2ilc"]
-radius = 19.0263
 
 [node name="Enemy" groups=["enemy"] instance=ExtResource("1_8ucer")]
 collision_layer = 6
 script = ExtResource("2_gkyfy")
 collide_damage = 10
 collide_damage_duration = 1.0
+enemy_type = 1
 character_name = "Enemy"
 speed = 100.0
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource("CircleShape2D_gkyfy")
 debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="CollideDamageTimer" type="Timer" parent="Timers" index="0"]
@@ -30,7 +25,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" index="0"]
-shape = SubResource("CircleShape2D_t2ilc")
 debug_color = Color(0.608941, 0.539551, 0, 0.42)
 
 [connection signal="timeout" from="Timers/CollideDamageTimer" to="." method="_on_collide_damage_timer_timeout"]

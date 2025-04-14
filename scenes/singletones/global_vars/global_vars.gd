@@ -6,3 +6,10 @@ extends Node
 class AnimationsNames:
 	static var death: String = "death"
 	static var hit: String = "hit"
+
+enum enemy_types {
+	JUNIOR,
+	MIDDLE,
+	SENIOR,
+	TEAMLID,
+}
