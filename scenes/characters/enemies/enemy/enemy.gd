@@ -5,6 +5,7 @@ class_name Enemy
 @export var collide_damage: int
 @export var collide_damage_duration: float
 @export var enemy_type: GlobalVars.enemy_types = GlobalVars.enemy_types.JUNIOR
+@export var recoverable_target_health: int
 
 @onready var collide_damage_timer = get_node("%CollideDamageTimer")
 @onready var attack_area: Area2D = get_node("%AttackArea")
@@ -30,3 +31,6 @@ func _on_collide_damage_timer_timeout() -> void:
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if is_target(body):
 		total_target = null
+
+func _on_health_component_died() -> void:
+	target.health_component._replenish_health(recoverable_target_health)

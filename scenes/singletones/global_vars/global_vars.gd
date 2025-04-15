@@ -4,7 +4,7 @@ extends Node
 @onready var player: Player
 
 var chaos_value: int = 1
-var debug_is_enabled: bool = false
+var debug_is_enabled: bool = true
 
 class AnimationsNames:
 	static var death: String = "death"

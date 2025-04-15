@@ -13,11 +13,13 @@ radius = 25.0
 [node name="SquareEnemy" instance=ExtResource("1_7b5ba")]
 script = ExtResource("2_ke3jm")
 shoot_duration = 0.5
+min_distance_to_target = 200.0
 collide_damage = 15
+recoverable_target_health = 20
 character_name = "Square"
 speed = 200.0
-health = 100
-max_health = 100
+health = 70
+max_health = 70
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_qlr2w")
@@ -43,4 +45,3 @@ debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 1, 1)
 
 [connection signal="timeout" from="Timers/ShootTimer" to="." method="_on_shoot_timer_timeout"]
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

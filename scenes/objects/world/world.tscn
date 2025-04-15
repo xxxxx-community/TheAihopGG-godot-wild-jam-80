@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://osff4b4kntj4"]
+[gd_scene load_steps=9 format=3 uid="uid://osff4b4kntj4"]
 
 [ext_resource type="Script" uid="uid://8n87xxfrg1wu" path="res://scenes/objects/world/world.gd" id="1_gmxm5"]
 [ext_resource type="PackedScene" uid="uid://5bh1m3ruoeml" path="res://scenes/objects/world_borders/world_borders.tscn" id="3_3kq53"]
 [ext_resource type="PackedScene" uid="uid://dy3tbnu1cbd80" path="res://scenes/characters/player/player.tscn" id="3_neq0c"]
+[ext_resource type="PackedScene" uid="uid://bwulfswkp185v" path="res://scenes/characters/enemies/square_enemy/square_enemy.tscn" id="4_24dl5"]
 [ext_resource type="PackedScene" uid="uid://bem6p33d82dyc" path="res://scenes/components/enemy_spawner_component/enemy_spawner_component.tscn" id="5_24dl5"]
 [ext_resource type="PackedScene" uid="uid://bq8cy6u6t1pck" path="res://scenes/components/chaos_value_enlarger/chaos_value_enlarger_component.tscn" id="5_a5r84"]
+[ext_resource type="PackedScene" uid="uid://bq50sj2kb3qjx" path="res://scenes/characters/enemies/circle_enemy/circle_enemy.tscn" id="5_tg776"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_neq0c"]
 vertices = PackedVector2Array(1142, 694, -1014.05, 694, -1021.95, -894.25, 1142, -949.727)
@@ -26,6 +28,12 @@ position = Vector2(-18, -43)
 health = 1000
 max_health = 1000
 
+[node name="SquareEnemy" parent="Characters" node_paths=PackedStringArray("target") instance=ExtResource("4_24dl5")]
+target = NodePath("../Player")
+
+[node name="CircleEnemy" parent="Characters" node_paths=PackedStringArray("target") instance=ExtResource("5_tg776")]
+target = NodePath("../Player")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_neq0c")
@@ -37,3 +45,4 @@ parent = NodePath("../..")
 
 [node name="EnemySpawnerComponent" parent="Components" node_paths=PackedStringArray("enemy_container_node") instance=ExtResource("5_24dl5")]
 enemy_container_node = NodePath("../../Characters")
+spawn_waves_is_enabled = false

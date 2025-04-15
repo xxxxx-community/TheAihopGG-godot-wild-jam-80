@@ -10,6 +10,7 @@ script = ExtResource("2_gkyfy")
 collide_damage = 10
 collide_damage_duration = 2.0
 enemy_type = 1
+recoverable_target_health = 0
 character_name = "Enemy"
 speed = 100.0
 invulnerability_time = 0.05
@@ -37,5 +38,6 @@ collision_mask = 2
 debug_color = Color(0.608941, 0.539551, 0, 0.42)
 
 [connection signal="timeout" from="Timers/CollideDamageTimer" to="." method="_on_collide_damage_timer_timeout"]
+[connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
