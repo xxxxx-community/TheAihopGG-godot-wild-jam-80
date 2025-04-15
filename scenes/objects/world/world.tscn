@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://8n87xxfrg1wu" path="res://scenes/objects/world/world.gd" id="1_gmxm5"]
 [ext_resource type="PackedScene" uid="uid://5bh1m3ruoeml" path="res://scenes/objects/world_borders/world_borders.tscn" id="3_3kq53"]
 [ext_resource type="PackedScene" uid="uid://dy3tbnu1cbd80" path="res://scenes/characters/player/player.tscn" id="3_neq0c"]
-[ext_resource type="PackedScene" uid="uid://beao4wrilntaq" path="res://scenes/characters/bosses/hexagon_boss/hexagon_boss.tscn" id="4_neq0c"]
+[ext_resource type="PackedScene" uid="uid://pldnrkpsnr3y" path="res://scenes/objects/enemy_spawner/enemy_spawner.tscn" id="4_neq0c"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_neq0c"]
 vertices = PackedVector2Array(1142, 694, -1014.05, 694, -1021.95, -894.25, 1142, -949.727)
@@ -25,10 +25,12 @@ position = Vector2(-18, -43)
 health = 1000
 max_health = 1000
 
-[node name="HexagonBoss" parent="Characters" node_paths=PackedStringArray("target") instance=ExtResource("4_neq0c")]
-position = Vector2(136, 192)
-target = NodePath("../Player")
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_neq0c")
+
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("enemy_container_node") instance=ExtResource("4_neq0c")]
+wave_spawn_duration = 20.0
+enemy_container_node = NodePath("../Characters")
+min_distance_to_player = 500.0
+max_distance_to_player = 700.0

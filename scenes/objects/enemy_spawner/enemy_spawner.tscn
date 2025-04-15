@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://pldnrkpsnr3y"]
+
+[ext_resource type="Script" uid="uid://3ru3iyn08v60" path="res://scenes/objects/enemy_spawner/enemy_spawner.gd" id="1_5j2iw"]
+
+[node name="EnemySpawner" type="Node"]
+script = ExtResource("1_5j2iw")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="WaveSpawnDurationTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timers/WaveSpawnDurationTimer" to="." method="_on_wave_spawn_duration_timer_timeout"]
