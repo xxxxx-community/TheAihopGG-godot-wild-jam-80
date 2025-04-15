@@ -34,8 +34,8 @@ class_name Character
 @export var health: int
 @export var max_health: int
 @export var invulnerability_time: float = 0.4
-@export var health_replenish_is_enabled: bool = true
 @export var invulnerability_is_enabled: bool = false # note: don t use invulnerability_is_enabled, use health_component.invulnerability_is_enabled
+@export var health_replenish_is_enabled: bool = true
 
 @export_category("Labels")
 @export var show_health_label: bool = false

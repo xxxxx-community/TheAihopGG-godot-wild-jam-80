@@ -40,7 +40,7 @@ func _take_damage(damage_count: int):
 
 func _replenish_health(health_count: int):
 	if health_replenish_is_enabled:
-		reduce_health(+health_count)
+		reduce_health(health_count)
 		health_replenished.emit(health_count)
 
 func _on_invulnerability_timer_timeout() -> void:
