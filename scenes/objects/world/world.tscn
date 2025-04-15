@@ -3,13 +3,12 @@
 [ext_resource type="Script" uid="uid://8n87xxfrg1wu" path="res://scenes/objects/world/world.gd" id="1_gmxm5"]
 [ext_resource type="PackedScene" uid="uid://5bh1m3ruoeml" path="res://scenes/objects/world_borders/world_borders.tscn" id="3_3kq53"]
 [ext_resource type="PackedScene" uid="uid://dy3tbnu1cbd80" path="res://scenes/characters/player/player.tscn" id="3_neq0c"]
-[ext_resource type="PackedScene" uid="uid://bq50sj2kb3qjx" path="res://scenes/characters/enemies/circle_enemy/circle_enemy.tscn" id="4_neq0c"]
+[ext_resource type="PackedScene" uid="uid://beao4wrilntaq" path="res://scenes/characters/bosses/hexagon_boss/hexagon_boss.tscn" id="4_neq0c"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_neq0c"]
-vertices = PackedVector2Array(2977.77, 2364.91, -2331.2, 2316.09, -2046.72, -1368.26, 3291.13, -1524.67)
+vertices = PackedVector2Array(1142, 694, -1014.05, 694, -1021.95, -894.25, 1142, -949.727)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-2056, -1378, -2342, 2326, 2987, 2375, 3302, -1535)])
-cell_size = 100.0
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1032, -904, -1024, 704, 1152, 704, 1152, -960)])
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_gmxm5")
@@ -26,10 +25,10 @@ position = Vector2(-18, -43)
 health = 1000
 max_health = 1000
 
-[node name="CircleEnemy" parent="Characters" node_paths=PackedStringArray("target") instance=ExtResource("4_neq0c")]
-position = Vector2(-8, 260)
+[node name="HexagonBoss" parent="Characters" node_paths=PackedStringArray("target") instance=ExtResource("4_neq0c")]
+position = Vector2(136, 192)
 target = NodePath("../Player")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(1, 0)
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_neq0c")

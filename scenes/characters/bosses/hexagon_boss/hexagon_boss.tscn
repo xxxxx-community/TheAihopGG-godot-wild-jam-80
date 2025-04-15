@@ -59,6 +59,14 @@ unique_name_in_owner = true
 bullet = ExtResource("6_np4gv")
 parent = NodePath("../..")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8"]
+unique_name_in_owner = true
+path_max_distance = 10000.0
+avoidance_enabled = true
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 1, 1)
+
 [connection signal="timeout" from="Timers/ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="Timers/UpdateTotalPointTimer" to="." method="_on_update_total_point_timer_timeout"]
 [connection signal="timeout" from="Timers/SpawnEnemyTimer" to="." method="_on_spawn_enemy_timer_timeout"]

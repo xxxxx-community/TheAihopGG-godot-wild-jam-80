@@ -15,9 +15,11 @@ extends Boss
 @onready var shotgun_weapon: Weapon = get_node("%ShotgunWeapon")
 @onready var boss_weapon: BossWeapon = get_node("%BossWeapon")
 @onready var player_weapon: Weapon = get_node("%PlayerWeapon")
+@onready var navigation_agent: NavigationAgent2D = get_node("%NavigationAgent2D")
 
 var total_point: Vector2
 var total_phase: int = 1
+var next_path_position
 
 func _ready():
 	super._ready()
@@ -26,9 +28,12 @@ func _ready():
 	update_total_point_timer.start(update_total_point_time)
 
 func _process(delta):
+	navigation_agent.target_position = total_point
+	next_path_position = navigation_agent.get_next_path_position()
 	move_direction = (total_point - global_position).normalized()
 	if global_position.distance_to(total_point) <= 10:
 		total_point = get_random_vector_near_player()
+		
 	super._process(delta)
 
 func _on_shoot_timer_timeout() -> void:

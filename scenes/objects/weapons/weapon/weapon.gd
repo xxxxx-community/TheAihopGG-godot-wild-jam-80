@@ -20,7 +20,7 @@ func _shoot(target_vector: Vector2, target_groups: Array[String]):
 		for vector in get_shoot_vectors(target_vector):
 			var bullet_instance: Bullet = bullet.instantiate()
 			bullet_instance._setup(parent, vector, target_groups)
-			add_child(bullet_instance)
+			GlobalVars.world.add_child(bullet_instance)
 		can_shoot = false
 		duration_timer.start(duration)
 
