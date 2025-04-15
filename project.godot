@@ -22,7 +22,7 @@ GlobalVars="*res://scenes/singletones/global_vars/global_vars.tscn"
 [display]
 
 window/size/viewport_width=1000
-window/size/viewport_height=600
+window/size/viewport_height=1000
 
 [dotnet]
 
@@ -41,9 +41,9 @@ folder_colors={
 
 [global_group]
 
-player=""
 character=""
 enemy=""
+player=""
 
 [input]
 

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0ocvn6fboccr"]
+
+[ext_resource type="PackedScene" uid="uid://cxecsqpalmkf4" path="res://scenes/objects/bullets/bullet/bullet.tscn" id="1_5d3hy"]
+[ext_resource type="Script" uid="uid://b5dt1xxqu1yjn" path="res://scenes/objects/bullets/spawn_enemy_bullet/spawn_enemy_bullet.gd" id="2_sx713"]
+[ext_resource type="PackedScene" uid="uid://kpln1pmgk62q" path="res://scenes/characters/enemies/triangle_enemy/triangle_enemy.tscn" id="3_ds60u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ds60u"]
+radius = 7.07107
+
+[node name="SpawnEnemyBullet" instance=ExtResource("1_5d3hy")]
+script = ExtResource("2_sx713")
+enemy = ExtResource("3_ds60u")
+spawn_enemy_time = 0.1
+lifetime = 1.0
+delete_after_hit = false
+
+[node name="AttackArea" parent="." index="0"]
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+shape = SubResource("CircleShape2D_ds60u")
+
+[connection signal="lifetime_expired" from="." to="." method="_on_lifetime_expired"]

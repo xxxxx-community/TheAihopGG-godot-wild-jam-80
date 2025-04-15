@@ -12,14 +12,14 @@ var can_shoot: bool = true
 func _ready():
 	assert(bullet)
 
-func get_shoot_directions(target_vector: Vector2) -> Array[Vector2]:
+func get_shoot_vectors(target_vector: Vector2) -> Array[Vector2]:
 	return [target_vector]
 
-func _shoot(target_direction: Vector2, target_groups: Array[String]):
+func _shoot(target_vector: Vector2, target_groups: Array[String]):
 	if can_shoot and parent.attack_is_enabled:
-		for direction in get_shoot_directions(target_direction):
-			var bullet_instance = bullet.instantiate()
-			bullet_instance._setup(direction, target_groups, parent)
+		for vector in get_shoot_vectors(target_vector):
+			var bullet_instance: Bullet = bullet.instantiate()
+			bullet_instance._setup(parent, vector, target_groups)
 			add_child(bullet_instance)
 		can_shoot = false
 		duration_timer.start(duration)

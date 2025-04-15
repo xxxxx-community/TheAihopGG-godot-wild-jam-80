@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://beao4wrilntaq"]
+
+[ext_resource type="PackedScene" uid="uid://k4mpovajggoe" path="res://scenes/characters/bosses/boss/boss.tscn" id="1_tbx04"]
+[ext_resource type="Script" uid="uid://ykmugh4bcxjb" path="res://scenes/characters/bosses/hexagon_boss/hexagon_boss.gd" id="2_1bw5v"]
+[ext_resource type="PackedScene" uid="uid://cu4i37gaoqilg" path="res://scenes/objects/weapons/boss_weapon/boss_weapon.tscn" id="3_nnhn5"]
+[ext_resource type="PackedScene" uid="uid://b8d4d5bi5pcvt" path="res://scenes/objects/weapons/shotgun_weapon/shotgun_weapon.tscn" id="4_pyybp"]
+[ext_resource type="PackedScene" uid="uid://c2iuod4ue6usr" path="res://scenes/objects/weapons/player_weapon/player_weapon.tscn" id="5_ch1g1"]
+[ext_resource type="PackedScene" uid="uid://d0ocvn6fboccr" path="res://scenes/objects/bullets/spawn_enemy_bullet/spawn_enemy_bullet.tscn" id="6_np4gv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbx04"]
+size = Vector2(92, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bw5v"]
+size = Vector2(114, 108)
+
+[node name="HexagonBoss" instance=ExtResource("1_tbx04")]
+script = ExtResource("2_1bw5v")
+shoot_time = 1.0
+spawn_enemy_time = 1.0
+update_total_point_time = 3.0
+shotgun_distance = 400.0
+is_final = true
+collide_damage = 30
+collide_damage_duration = 1.0
+character_name = "The Hexagon"
+health = 1000
+max_health = 1000
+invulnerability_time = 0.1
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_tbx04")
+
+[node name="ShootTimer" type="Timer" parent="Timers" index="1"]
+unique_name_in_owner = true
+
+[node name="UpdateTotalPointTimer" type="Timer" parent="Timers" index="2"]
+unique_name_in_owner = true
+
+[node name="SpawnEnemyTimer" type="Timer" parent="Timers" index="3"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+shape = SubResource("RectangleShape2D_1bw5v")
+
+[node name="Weapons" type="Node" parent="." index="7"]
+
+[node name="BossWeapon" parent="Weapons" index="0" node_paths=PackedStringArray("parent") instance=ExtResource("3_nnhn5")]
+unique_name_in_owner = true
+duration = 0.0
+parent = NodePath("../..")
+
+[node name="ShotgunWeapon" parent="Weapons" index="1" node_paths=PackedStringArray("parent") instance=ExtResource("4_pyybp")]
+unique_name_in_owner = true
+duration = 0.0
+parent = NodePath("../..")
+
+[node name="PlayerWeapon" parent="Weapons" index="2" node_paths=PackedStringArray("parent") instance=ExtResource("5_ch1g1")]
+unique_name_in_owner = true
+bullet = ExtResource("6_np4gv")
+parent = NodePath("../..")
+
+[connection signal="timeout" from="Timers/ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="Timers/UpdateTotalPointTimer" to="." method="_on_update_total_point_timer_timeout"]
+[connection signal="timeout" from="Timers/SpawnEnemyTimer" to="." method="_on_spawn_enemy_timer_timeout"]
+[connection signal="health_reduced" from="Components/HealthComponent" to="." method="_on_health_component_health_reduced"]

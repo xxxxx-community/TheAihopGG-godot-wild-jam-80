@@ -5,6 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mu6v"]
 
 [node name="SquareEnemyBullet" instance=ExtResource("1_2mu6v")]
+speed = 300.0
 damage = 20
 
 [node name="CollisionShape2D" parent="AttackArea" index="0"]

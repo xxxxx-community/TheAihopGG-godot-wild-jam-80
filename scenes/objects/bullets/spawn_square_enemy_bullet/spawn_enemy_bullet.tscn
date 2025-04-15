@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxkrgiw85kn3o"]
+
+[ext_resource type="PackedScene" uid="uid://d0ocvn6fboccr" path="res://scenes/objects/bullets/spawn_enemy_bullet/spawn_enemy_bullet.tscn" id="1_fhy5y"]
+[ext_resource type="PackedScene" uid="uid://bwulfswkp185v" path="res://scenes/characters/enemies/square_enemy/square_enemy.tscn" id="2_7unj2"]
+
+[node name="SpawnEnemyBullet" instance=ExtResource("1_fhy5y")]
+enemy = ExtResource("2_7unj2")

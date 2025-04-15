@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu4i37gaoqilg"]
+
+[ext_resource type="PackedScene" uid="uid://cmf2avpjyp04f" path="res://scenes/objects/weapons/weapon/weapon.tscn" id="1_3akvx"]
+[ext_resource type="Script" uid="uid://b8w72tp6v8uwx" path="res://scenes/objects/weapons/boss_weapon/boss_weapon.gd" id="2_era6w"]
+[ext_resource type="PackedScene" uid="uid://6byno0c33i7s" path="res://scenes/objects/bullets/square_enemy_bullet/square_enemy_bullet.tscn" id="3_frfb5"]
+
+[node name="BossWeapon" instance=ExtResource("1_3akvx")]
+script = ExtResource("2_era6w")
+count = 20
+bullet = ExtResource("3_frfb5")
+duration = 3.0

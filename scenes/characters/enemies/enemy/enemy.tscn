@@ -5,6 +5,7 @@
 
 [node name="Enemy" groups=["enemy"] instance=ExtResource("1_8ucer")]
 collision_layer = 6
+collision_mask = 0
 script = ExtResource("2_gkyfy")
 collide_damage = 10
 collide_damage_duration = 2.0
@@ -18,6 +19,13 @@ debug_color = Color(0.996078, 0, 0, 0.419608)
 [node name="CollideDamageTimer" type="Timer" parent="Timers" index="0"]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="HealthComponent" parent="Components" index="0"]
+health = null
+max_health = null
+invulnerability_time = null
+health_replenish_is_enabled = null
+invulnerability_is_enabled = null
 
 [node name="AttackArea" type="Area2D" parent="." index="6"]
 unique_name_in_owner = true

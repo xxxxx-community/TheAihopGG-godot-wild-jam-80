@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://k4mpovajggoe"]
+
+[ext_resource type="PackedScene" uid="uid://dxspf3653vgjx" path="res://scenes/characters/enemies/enemy/enemy.tscn" id="1_xl2gy"]
+[ext_resource type="Script" uid="uid://oe4xpnm2avjx" path="res://scenes/characters/bosses/boss/boss.gd" id="2_0a61a"]
+
+[node name="Boss" instance=ExtResource("1_xl2gy")]
+script = ExtResource("2_0a61a")
+is_final = false
+enemy_type = 3
+character_name = "Boss"
+
+[node name="HealthComponent" parent="Components" index="0"]
+health = null
+max_health = null
+invulnerability_time = null
+health_replenish_is_enabled = null
+invulnerability_is_enabled = null
+
+[connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]

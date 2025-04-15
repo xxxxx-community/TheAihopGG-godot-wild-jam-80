@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://8n87xxfrg1wu" path="res://scenes/objects/world/world.gd" id="1_gmxm5"]
 [ext_resource type="PackedScene" uid="uid://5bh1m3ruoeml" path="res://scenes/objects/world_borders/world_borders.tscn" id="3_3kq53"]
 [ext_resource type="PackedScene" uid="uid://dy3tbnu1cbd80" path="res://scenes/characters/player/player.tscn" id="3_neq0c"]
-[ext_resource type="PackedScene" uid="uid://bwulfswkp185v" path="res://scenes/characters/enemies/square_enemy/square_enemy.tscn" id="5_a5r84"]
+[ext_resource type="PackedScene" uid="uid://beao4wrilntaq" path="res://scenes/characters/bosses/hexagon_boss/hexagon_boss.tscn" id="4_neq0c"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_gmxm5")
@@ -15,9 +15,12 @@ collision_mask = 2
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="SquareEnemy2" parent="Characters" node_paths=PackedStringArray("target") instance=ExtResource("5_a5r84")]
+[node name="HexagonBoss" parent="Characters" node_paths=PackedStringArray("target") instance=ExtResource("4_neq0c")]
+spawn_enemy_time = 3.0
 target = NodePath("../Player")
+speed = 200.0
 
 [node name="Player" parent="Characters" instance=ExtResource("3_neq0c")]
-health = 10000
-max_health = 10000
+position = Vector2(-324, -42)
+health = 1000
+max_health = 1000
