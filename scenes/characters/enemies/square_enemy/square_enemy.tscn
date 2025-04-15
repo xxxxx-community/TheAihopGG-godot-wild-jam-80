@@ -12,7 +12,7 @@ radius = 25.0
 
 [node name="SquareEnemy" instance=ExtResource("1_7b5ba")]
 script = ExtResource("2_ke3jm")
-shoot_duration = 0.5
+shoot_duration = 1.0
 min_distance_to_target = 200.0
 collide_damage = 15
 recoverable_target_health = 20
