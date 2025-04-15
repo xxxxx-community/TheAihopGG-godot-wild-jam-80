@@ -51,24 +51,24 @@ func _on_shoot_timer_timeout() -> void:
 
 func get_random_vector_near_player() -> Vector2:
 	return Vector2(
-		randi_range(target.position.x / 2, target.position.x * 2),
-		randi_range(target.position.y / 2, target.position.y * 2)
+		randi_range(target.position.x / 3, target.position.x * 3),
+		randi_range(target.position.y / 3, target.position.y * 3)
 	)
 func _on_update_total_point_timer_timeout() -> void:
 	total_point = get_random_vector_near_player()
 
-func _on_spawn_enemy_timer_timeout() -> void:
+func _on_spawan_enemy_timer_timeout() -> void:
 	if total_phase == 2:
 		player_weapon._shoot(get_random_vector_near_player(), [])
 
 func _on_health_component_health_reduced(_old_health: int, new_health: int) -> void:
 	if new_health <= 900:
 		total_phase = 2
-		boss_weapon.count = 60
+		boss_weapon.count = 40
 	if new_health <= 700:
 		total_phase = 3
 		speed = 200
-		boss_weapon.count = 70
+		boss_weapon.count = 30
 		shoot_time = 0.8
 	if new_health <= 500:
 		total_phase = 4
@@ -78,3 +78,4 @@ func _on_health_component_health_reduced(_old_health: int, new_health: int) -> v
 		shotgun_weapon.bullet = preload("res://scenes/objects/bullets/spawn_square_enemy_bullet/spawn_enemy_bullet.tscn")
 	if new_health <= 200:
 		total_phase = 5
+		boss_weapon.count = 60

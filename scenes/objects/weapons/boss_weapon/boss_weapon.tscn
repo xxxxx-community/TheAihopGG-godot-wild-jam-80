@@ -6,6 +6,6 @@
 
 [node name="BossWeapon" instance=ExtResource("1_3akvx")]
 script = ExtResource("2_era6w")
-count = 40
+count = 20
 bullet = ExtResource("3_frfb5")
 duration = 3.0
