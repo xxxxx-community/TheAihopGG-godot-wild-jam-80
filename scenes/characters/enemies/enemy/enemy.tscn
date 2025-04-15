@@ -5,7 +5,7 @@
 
 [node name="Enemy" groups=["enemy"] instance=ExtResource("1_8ucer")]
 collision_layer = 6
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("2_gkyfy")
 collide_damage = 10
 collide_damage_duration = 2.0

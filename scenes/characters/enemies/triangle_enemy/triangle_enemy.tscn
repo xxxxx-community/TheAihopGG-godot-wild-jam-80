@@ -10,20 +10,25 @@ radius = 17.1463
 
 [node name="TriangleEnemy" instance=ExtResource("1_sxb20")]
 scale = Vector2(0.991468, 0.937535)
+collision_mask = 4
 script = ExtResource("2_wiw6w")
 collide_damage_duration = 3.0
 character_name = "Triangle"
-speed = 60.0
+speed = 200.0
+show_health_label = false
+show_name_label = false
+show_speed_label = false
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_wiw6w")
 
-[node name="HealthComponent" parent="Components" index="0"]
-health = null
-max_health = null
-invulnerability_time = null
-health_replenish_is_enabled = null
-invulnerability_is_enabled = null
-
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
 shape = SubResource("CircleShape2D_wiw6w")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7"]
+unique_name_in_owner = true
+path_max_distance = 10000.0
+avoidance_enabled = true
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 1, 1)
