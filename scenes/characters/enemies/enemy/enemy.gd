@@ -34,3 +34,4 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 
 func _on_health_component_died() -> void:
 	target.health_component._replenish_health(recoverable_target_health)
+	print(target.health_component.health)

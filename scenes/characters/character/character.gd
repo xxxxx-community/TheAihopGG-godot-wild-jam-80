@@ -38,23 +38,9 @@ class_name Character
 @export var invulnerability_is_enabled: bool = false # note: don t use invulnerability_is_enabled, use health_component.invulnerability_is_enabled
 
 @export_category("Labels")
-@export var show_health_label: bool = false:
-	set(value):
-		show_health_label = value
-		if health_label:
-			health_label.visible = value
-
-@export var show_name_label: bool = false:
-	set(value):
-		show_name_label = value
-		if name_label:
-			name_label.visible = value
-			
-@export var show_speed_label: bool = false:
-	set(value):
-		show_speed_label = value
-		if speed_label:
-			speed_label.visible = value
+@export var show_health_label: bool = false
+@export var show_name_label: bool = false
+@export var show_speed_label: bool = false
 
 var move_direction: Vector2 = default_move_direction
 
@@ -72,6 +58,9 @@ func _ready():
 	health_label.text = "health: " + str(health_component.health)
 
 func _process(_delta):
+	speed_label.text = "speed: " + str(speed)
+	name_label.text = "name: " + str(character_name)
+	health_label.text = "health: " + str(health_component.health)
 	if movement_is_enabled:
 		if move_direction.is_normalized():
 			velocity = speed * move_direction
