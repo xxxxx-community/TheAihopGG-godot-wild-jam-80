@@ -11,6 +11,9 @@ func _ready():
 func _process(delta):
 	navigation_agent.target_position = target.global_position
 	next_path_position = navigation_agent.get_next_path_position()
-	move_direction = (next_path_position - global_position).normalized()
+	if global_position.distance_to(next_path_position) > 5:
+		move_direction = (next_path_position - global_position).normalized()
+	else:
+		move_direction = Vector2.ZERO
 
 	super._process(delta)
