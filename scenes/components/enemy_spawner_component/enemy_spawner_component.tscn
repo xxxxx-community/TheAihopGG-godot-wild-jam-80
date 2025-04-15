@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bem6p33d82dyc"]
+
+[ext_resource type="PackedScene" uid="uid://bm8gdov5dr8pg" path="res://scenes/components/component/component.tscn" id="1_c44vn"]
+[ext_resource type="Script" uid="uid://cshttyt1ltrol" path="res://scenes/components/enemy_spawner_component/enemy_spawner_component.gd" id="2_n7kfl"]
+
+[node name="EnemySpawnerComponent" instance=ExtResource("1_c44vn")]
+script = ExtResource("2_n7kfl")
+start_wave_spawn_duration = 0.0
+enemy_spawn_delay_time = 1.0
+min_distance_to_player = 500.0
+max_distance_to_player = 700.0
+spawn_waves_is_enabled = true
+
+[node name="Timers" type="Node" parent="." index="0"]
+
+[node name="WaveSpawnDurationTimer" type="Timer" parent="Timers" index="0"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="EnemySpawnDelayTimer" type="Timer" parent="Timers" index="1"]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="Timers/WaveSpawnDurationTimer" to="." method="_on_wave_spawn_duration_timer_timeout"]
+[connection signal="timeout" from="Timers/EnemySpawnDelayTimer" to="." method="_on_enemy_spawn_delay_timer_timeout"]

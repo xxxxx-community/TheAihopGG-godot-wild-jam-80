@@ -15,9 +15,9 @@ script = ExtResource("2_wiw6w")
 collide_damage_duration = 3.0
 character_name = "Triangle"
 speed = 200.0
-show_health_label = false
-show_name_label = false
-show_speed_label = false
+health = 50
+max_health = 50
+invulnerability_time = 0.05
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_wiw6w")

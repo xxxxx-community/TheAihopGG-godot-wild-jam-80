@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwulfswkp185v"]
+[gd_scene load_steps=6 format=3 uid="uid://bwulfswkp185v"]
 
 [ext_resource type="PackedScene" uid="uid://dxspf3653vgjx" path="res://scenes/characters/enemies/enemy/enemy.tscn" id="1_7b5ba"]
 [ext_resource type="Script" uid="uid://bgdufvineu8xt" path="res://scenes/characters/enemies/square_enemy/square_enemy.gd" id="2_ke3jm"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlr2w"]
 size = Vector2(29, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0shrc"]
+radius = 25.0
 
 [node name="SquareEnemy" instance=ExtResource("1_7b5ba")]
 script = ExtResource("2_ke3jm")
@@ -21,6 +24,9 @@ shape = SubResource("RectangleShape2D_qlr2w")
 
 [node name="ShootTimer" type="Timer" parent="Timers" index="1"]
 unique_name_in_owner = true
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+shape = SubResource("CircleShape2D_0shrc")
 
 [node name="Weapons" type="Node" parent="." index="7"]
 
