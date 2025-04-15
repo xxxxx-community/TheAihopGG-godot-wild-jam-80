@@ -31,7 +31,7 @@ func _ready():
 	assert(max_distance_to_player > min_distance_to_player)
 	assert(enemy_container_node)
 	wave_spawn_duration_timer.start(start_wave_spawn_duration + GlobalVars.chaos_value)
-	spawn_wave(generate_wave(round(GlobalVars.chaos_value * 0.5), round(GlobalVars.chaos_value * 0.10), round(GlobalVars.chaos_value * 0.05)))
+	spawn_wave(generate_wave(round(GlobalVars.chaos_value * 0.3), round(GlobalVars.chaos_value * 0.05), round(GlobalVars.chaos_value * 0.02)))
 
 func spawn_wave(wave: Array[Enemy]) -> void:
 	if spawn_waves_is_enabled:
@@ -58,7 +58,7 @@ func generate_enemies_from_array(enemies_count: int, enemies_array: Array[Packed
 	return arr
 
 func _on_wave_spawn_duration_timer_timeout() -> void:
-	if GlobalVars.chaos_value < 20:
+	if GlobalVars.chaos_value < 50:
 		spawn_wave(generate_wave(round(GlobalVars.chaos_value * 0.5), round(GlobalVars.chaos_value * 0.10), round(GlobalVars.chaos_value * 0.05)))
 	else:
 		if spawn_waves_is_enabled:
