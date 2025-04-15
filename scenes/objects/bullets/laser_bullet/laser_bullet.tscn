@@ -1,21 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwhhyf1kj0p2b"]
+[gd_scene load_steps=3 format=3 uid="uid://cmvuntphmjf4f"]
 
 [ext_resource type="PackedScene" uid="uid://cxecsqpalmkf4" path="res://scenes/objects/bullets/bullet/bullet.tscn" id="1_17wxl"]
-[ext_resource type="Script" uid="uid://bn321mjyexsjt" path="res://scenes/objects/bullets/laser_bullet/laser_bullet.gd" id="2_wsrww"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsrww"]
-size = Vector2(665, 49)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17wxl"]
+size = Vector2(129, 3)
 
 [node name="LaserBullet" instance=ExtResource("1_17wxl")]
-script = ExtResource("2_wsrww")
-speed = 0.0
-damage = 100
-lifetime = 0.6
+speed = 1000.0
+damage = 8
+lifetime = 2.0
 delete_after_hit = false
 
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
-position = Vector2(317, 1)
-shape = SubResource("RectangleShape2D_wsrww")
-
-[connection signal="hit" from="." to="." method="_on_hit"]
-[connection signal="lifetime_expired" from="." to="." method="_on_lifetime_expired"]
+position = Vector2(63, 0)
+shape = SubResource("RectangleShape2D_17wxl")
+debug_color = Color(1.58831e-06, 0.62764, 0.499969, 0.42)

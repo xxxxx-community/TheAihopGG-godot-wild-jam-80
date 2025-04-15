@@ -23,6 +23,7 @@ var next_path_position
 
 func _ready():
 	super._ready()
+	navigation_agent.debug_enabled = GlobalVars.debug_is_enabled
 	shoot_timer.start(shoot_time)
 	spawn_enemy_timer.start(spawn_enemy_time)
 	update_total_point_timer.start(update_total_point_time)

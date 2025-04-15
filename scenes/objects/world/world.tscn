@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://osff4b4kntj4"]
+[gd_scene load_steps=7 format=3 uid="uid://osff4b4kntj4"]
 
 [ext_resource type="Script" uid="uid://8n87xxfrg1wu" path="res://scenes/objects/world/world.gd" id="1_gmxm5"]
 [ext_resource type="PackedScene" uid="uid://5bh1m3ruoeml" path="res://scenes/objects/world_borders/world_borders.tscn" id="3_3kq53"]
 [ext_resource type="PackedScene" uid="uid://dy3tbnu1cbd80" path="res://scenes/characters/player/player.tscn" id="3_neq0c"]
-[ext_resource type="PackedScene" uid="uid://pldnrkpsnr3y" path="res://scenes/objects/enemy_spawner/enemy_spawner.tscn" id="4_neq0c"]
+[ext_resource type="PackedScene" uid="uid://bem6p33d82dyc" path="res://scenes/components/enemy_spawner_component/enemy_spawner_component.tscn" id="5_24dl5"]
+[ext_resource type="PackedScene" uid="uid://bq8cy6u6t1pck" path="res://scenes/components/chaos_value_enlarger/chaos_value_enlarger_component.tscn" id="5_a5r84"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_neq0c"]
 vertices = PackedVector2Array(1142, 694, -1014.05, 694, -1021.95, -894.25, 1142, -949.727)
@@ -29,8 +30,10 @@ max_health = 1000
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_neq0c")
 
-[node name="EnemySpawner" parent="." node_paths=PackedStringArray("enemy_container_node") instance=ExtResource("4_neq0c")]
-wave_spawn_duration = 20.0
-enemy_container_node = NodePath("../Characters")
-min_distance_to_player = 500.0
-max_distance_to_player = 700.0
+[node name="Components" type="Node" parent="."]
+
+[node name="ChaosValueEnlargerComponent" parent="Components" node_paths=PackedStringArray("parent") instance=ExtResource("5_a5r84")]
+parent = NodePath("../..")
+
+[node name="EnemySpawnerComponent" parent="Components" node_paths=PackedStringArray("enemy_container_node") instance=ExtResource("5_24dl5")]
+enemy_container_node = NodePath("../../Characters")

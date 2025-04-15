@@ -7,8 +7,6 @@
 collision_layer = 2
 script = ExtResource("1_fnnly")
 show_health_label = true
-show_name_label = true
-show_speed_label = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

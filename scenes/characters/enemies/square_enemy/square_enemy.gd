@@ -4,12 +4,13 @@ extends Enemy
 
 @onready var shoot_timer: Timer = get_node("%ShootTimer")
 @onready var square_enemy_weapon: Weapon = get_node("%SquareEnemyWeapon")
-@onready var navigation_agent = get_node("%NavigationAgent2D")
+@onready var navigation_agent: NavigationAgent2D = get_node("%NavigationAgent2D")
 
 var next_path_position: Vector2
 
 func _ready():
 	super._ready()
+	navigation_agent.debug_enabled = GlobalVars.debug_is_enabled
 	shoot_timer.start(shoot_duration)
 
 func _process(delta):

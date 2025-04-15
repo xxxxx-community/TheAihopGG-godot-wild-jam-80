@@ -1,9 +1,12 @@
 extends Weapon
 
+@export var count: int
+
 func get_shoot_vectors(target_vector: Vector2) -> Array[Vector2]:
-	return [
-		target_vector,
-		Vector2(-target_vector.x, -target_vector.y),
-		Vector2(-target_vector.y, target_vector.x),
-		Vector2(target_vector.y, -target_vector.x)
-	]
+	var vectors: Array[Vector2]
+	var angle = rad_to_deg(int(360 / float(count)))
+	var current_angle: float = rad_to_deg(target_vector.normalized().angle())
+	for i in range(count):
+		vectors.append(Vector2.from_angle(deg_to_rad(current_angle)) * target_vector.length())
+		current_angle += angle
+	return vectors

@@ -12,6 +12,7 @@ collide_damage_duration = 2.0
 enemy_type = 1
 character_name = "Enemy"
 speed = 100.0
+invulnerability_time = 0.05
 
 [node name="CollisionShape2D" parent="." index="1"]
 debug_color = Color(0.996078, 0, 0, 0.419608)
